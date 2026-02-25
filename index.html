@@ -151,48 +151,96 @@
       right: 85px;
     }
 
-    /* hero */
+    /* --- DYNAMIC HERO BACKGROUND (SLIDESHOW) --- */
     .hero {
-      padding: 4rem 0 5rem;
-      background: #f3f9ff;
+      position: relative;
+      padding: 5rem 0 6rem;
+      background-color: #102b3a; /* fallback */
+      isolation: isolate;
     }
+
+    .hero-slideshow {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .hero-slideshow img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+    }
+
+    .hero-slideshow img.active {
+      opacity: 1;
+    }
+
+    /* overlay for readability */
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 20, 30, 0.6); /* dark overlay to make text pop */
+      z-index: -1;
+    }
+
     .hero-content {
+      position: relative;
+      z-index: 2;
       max-width: 800px;
       margin: 0 auto;
       text-align: center;
+      color: white;
     }
+
     .hero-tagline {
       font-size: 1.2rem;
       font-weight: 500;
-      color: #1b5a7a;
+      color: rgba(255,255,255,0.9);
       letter-spacing: 2px;
       margin-bottom: 1rem;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.4);
     }
+
     .hero h1 {
       font-size: 3.8rem;
       font-weight: 700;
-      color: #08212e;
+      color: white;
       line-height: 1.1;
       margin-bottom: 1rem;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.5);
     }
+
     .hero h1 span {
-      color: #1f6e9c;
-      border-bottom: 3px solid rgba(31,110,156,0.2);
+      color: #b3e0ff;
+      border-bottom: 3px solid rgba(255,255,255,0.3);
     }
+
     .hero-safe {
       display: flex;
       gap: 2rem;
       justify-content: center;
       font-size: 1.4rem;
       font-weight: 600;
-      color: #124b68;
+      color: white;
       margin: 1.5rem 0 2rem;
+      text-shadow: 0 2px 6px black;
     }
+
     .hero-safe span {
-      background: rgba(31,110,156,0.05);
+      background: rgba(0, 20, 40, 0.4);
+      backdrop-filter: blur(4px);
       padding: 0.3rem 1.5rem;
       border-radius: 60px;
+      border: 1px solid rgba(255,255,255,0.15);
     }
+    /* end hero updates */
 
     /* quick contact bar from image */
     .contact-bar {
@@ -262,6 +310,55 @@
       font-weight: 600;
       color: #11384d;
     }
+
+    /* NEW SECTION: MISSION & VISION (exact from image) */
+    .statements-section {
+      padding: 5rem 0;
+      background: #f0f7fd;
+    }
+    .statements-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      justify-content: center;
+    }
+    .statement-card {
+      background: white;
+      border-radius: 36px;
+      padding: 2.8rem 2.5rem;
+      flex: 1 1 400px;
+      max-width: 550px;
+      box-shadow: 0 25px 35px -15px rgba(0,45,60,0.15);
+      border: 1px solid rgba(42,111,151,0.2);
+      transition: 0.2s;
+    }
+    .statement-card:hover {
+      transform: translateY(-6px);
+    }
+    .statement-card h3 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #0e3b52;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+      border-left: 8px solid #1f6e9c;
+      padding-left: 1.5rem;
+    }
+    .statement-card p {
+      font-size: 1.25rem;
+      line-height: 1.6;
+      color: #1f4a63;
+      font-weight: 400;
+      margin-bottom: 1rem;
+    }
+    .statement-card .small-note {
+      text-align: right;
+      font-weight: 600;
+      color: #608aa3;
+      margin-top: 2rem;
+      font-size: 1rem;
+    }
+    /* end statements */
 
     /* full contact & book now */
     .contact-section {
@@ -354,7 +451,7 @@
   </style>
 </head>
 <body>
-  <!-- floating whatsapp + custom message (wa.me/254732294681?text=Hello%20Nexford%20Security%2C%20I'm%20interested%20in%20your%20services) -->
+  <!-- floating whatsapp + custom message -->
   <a href="https://wa.me/254732294681?text=Hello%20Nexford%20Security%2C%20I%20need%20more%20information%20about%20your%20services%20(CCTV%2C%20guards%2C%20dog%20handling%2C%20etc.)" 
      class="whatsapp-float" 
      target="_blank" 
@@ -362,7 +459,7 @@
     <i class="fab fa-whatsapp"></i>
   </a>
 
-  <!-- top bar with exact contacts from image (phone, email, location, hour) -->
+  <!-- top bar with exact contacts -->
   <div class="contact-bar">
     <span><i class="fas fa-phone-alt"></i> <a href="tel:+254788298936">0788 298 936</a> (main)</span>
     <span><i class="fab fa-whatsapp"></i> <a href="https://wa.me/254732294681" target="_blank">0732 294 681</a> (WhatsApp)</span>
@@ -371,7 +468,6 @@
     <span><i class="fas fa-clock"></i> Off Eldoret–Nakuru Hwy next to Ken Knit</span>
   </div>
 
-  <!-- navigation menu with Home, Solutions, Insights, Partners, Contact (same as before) -->
   <nav class="navbar">
     <div class="logo-area">
       <div class="logo-img" role="img" aria-label="Nexford logo"></div>
@@ -387,20 +483,46 @@
   </nav>
 
   <main>
-    <!-- home section (hero) with "Safe • Secure • Trusted" -->
+    <!-- home section with DYNAMIC BACKGROUND (portfolio1.jpg, portfolio2.jpg, portfolio3.jpg) -->
     <section id="home" class="hero">
+      <!-- slideshow container: images will be rotated via JS -->
+      <div class="hero-slideshow">
+        <img src="images/portfolio1.jpg" alt="security patrol" class="slide" id="slide1">
+        <img src="images/portfolio2.jpg" alt="cctv control room" class="slide" id="slide2">
+        <img src="images/portfolio3.jpg" alt="dog handling unit" class="slide" id="slide3">
+      </div>
       <div class="container hero-content">
         <div class="hero-tagline">NEXFORD SECURITY LTD  <strong>NSL</strong></div>
         <h1>Safe <span>•</span> Secure <span>•</span> Trusted</h1>
         <div class="hero-safe">
           <span>Safe</span> <span>Secure</span> <span>Trusted</span>
         </div>
-        <p style="font-size:1.3rem; color:#2b5470; margin-bottom: 2rem;">Integrated protection for your people and assets</p>
+        <p style="font-size:1.3rem; color:rgba(255,255,255,0.95); margin-bottom: 2rem; text-shadow:0 2px 8px black;">Integrated protection for your people and assets</p>
         <a href="#contact" class="book-now" style="font-size:1.3rem; padding:1rem 2.5rem;">BOOK NOW</a>
       </div>
     </section>
 
-    <!-- solutions section (all services from the photo) -->
+    <!-- MISSION & VISION section (exactly as described) -->
+    <section class="statements-section">
+      <div class="container">
+        <div class="statements-grid">
+          <!-- Mission card -->
+          <div class="statement-card">
+            <h3>Mission</h3>
+            <p>Safeguarding our clients' peace of mind by delivering innovative and reliable security solutions. We commit to protect lives, assets, and information through a modernized technology, highly trained personnel with unwavering integrity.</p>
+            <div class="small-note">OUR STATEMENTS</div>
+          </div>
+          <!-- Vision card -->
+          <div class="statement-card">
+            <h3>Vision</h3>
+            <p>To be a global leader in redefined security excellence, aspiring to set new industry standards using advanced technological services.</p>
+            <div class="small-note">02</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- solutions section (all services from photo) -->
     <section id="solutions" class="services-section">
       <div class="container">
         <div class="section-head">
@@ -417,11 +539,10 @@
           <div class="service-item"><i class="fas fa-fire-extinguisher"></i><h3>Fire Safety & Alarm Systems</h3></div>
           <div class="service-item"><i class="fas fa-briefcase"></i><h3>Executive & Asset Protection</h3></div>
         </div>
-        <!-- also mention dog handling, patrol, etc (already included) -->
       </div>
     </section>
 
-    <!-- insights section (placeholder for articles) -->
+    <!-- insights section -->
     <section id="insights" style="padding:4rem 0; background:#f3f9ff;">
       <div class="container" style="text-align: center;">
         <h2 style="font-size:2.5rem; color:#0f2838;">Insights & intelligence</h2>
@@ -447,7 +568,7 @@
       </div>
     </section>
 
-    <!-- contact section with full details + BOOK NOW button -->
+    <!-- contact section -->
     <section id="contact" class="contact-section">
       <div class="container contact-grid">
         <div class="contact-details">
@@ -460,7 +581,6 @@
           <p style="margin-top:2rem;"><a href="#home" class="book-now">BOOK NOW</a></p>
         </div>
         <div style="flex:1; min-width:250px;">
-          <!-- optional small map or badge -->
           <div style="background:#cfdeec; border-radius:36px; padding:2rem; text-align:center;">
             <i class="fas fa-shield-alt" style="font-size:4rem; color:#144a66;"></i>
             <p style="margin-top:1rem; font-weight:600;">24/7 rapid response</p>
@@ -499,8 +619,22 @@
     </div>
   </footer>
 
+  <!-- JavaScript for dynamic slideshow and smooth scroll -->
   <script>
-    // smooth scrolling for anchor links (optional)
+    // Slideshow: rotate images (portfolio1.jpg, portfolio2.jpg, portfolio3.jpg)
+    (function() {
+      const slides = document.querySelectorAll('.hero-slideshow .slide');
+      if (slides.length === 0) return;
+      let current = 0;
+      slides[current].classList.add('active');
+      setInterval(() => {
+        slides[current].classList.remove('active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('active');
+      }, 5000); // change every 5 seconds
+    })();
+
+    // smooth scroll for anchor links
     document.querySelectorAll('.nav-links a, .book-now').forEach(link => {
       link.addEventListener('click', function(e) {
         const href = this.getAttribute('href');
