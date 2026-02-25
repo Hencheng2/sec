@@ -151,11 +151,11 @@
       right: 85px;
     }
 
-    /* --- DYNAMIC HERO BACKGROUND (SLIDESHOW) --- */
+    /* hero slideshow */
     .hero {
       position: relative;
       padding: 5rem 0 6rem;
-      background-color: #102b3a; /* fallback */
+      background-color: #102b3a;
       isolation: isolate;
     }
 
@@ -181,12 +181,11 @@
       opacity: 1;
     }
 
-    /* overlay for readability */
     .hero::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: rgba(0, 20, 30, 0.6); /* dark overlay to make text pop */
+      background: rgba(0, 20, 30, 0.6);
       z-index: -1;
     }
 
@@ -240,35 +239,8 @@
       border-radius: 60px;
       border: 1px solid rgba(255,255,255,0.15);
     }
-    /* end hero updates */
 
-    /* quick contact bar from image */
-    .contact-bar {
-      background: #0d2b3b;
-      color: white;
-      padding: 0.8rem 2rem;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 2.5rem;
-      font-size: 1rem;
-      border-bottom: 2px solid #2b6a8f;
-    }
-    .contact-bar i {
-      margin-right: 8px;
-      color: #9ac9e8;
-    }
-    .contact-bar a {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    .contact-bar a:hover {
-      text-decoration: underline;
-    }
-
-    /* services grid (expanded) */
+    /* services grid */
     .services-section {
       padding: 5rem 0;
       background: white;
@@ -298,7 +270,13 @@
       border-radius: 28px;
       text-align: center;
       border: 1px solid #d7e7f2;
-      transition: 0.15s;
+      transition: 0.2s;
+      cursor: pointer;
+    }
+    .service-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 25px -10px rgba(0,60,90,0.2);
+      border-color: #1f6e9c;
     }
     .service-item i {
       font-size: 2.6rem;
@@ -311,7 +289,63 @@
       color: #11384d;
     }
 
-    /* NEW SECTION: MISSION & VISION (exact from image) */
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,20,30,0.8);
+      backdrop-filter: blur(5px);
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-content {
+      background: white;
+      max-width: 500px;
+      margin: 2rem;
+      padding: 2.5rem;
+      border-radius: 40px;
+      box-shadow: 0 30px 50px rgba(0,0,0,0.5);
+      position: relative;
+      animation: modalSlide 0.3s ease;
+    }
+    @keyframes modalSlide {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .close-modal {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      font-size: 2rem;
+      cursor: pointer;
+      color: #6b8fa5;
+      transition: 0.1s;
+    }
+    .close-modal:hover {
+      color: #0e293b;
+    }
+    .modal-icon {
+      font-size: 3rem;
+      color: #1f6e9c;
+      margin-bottom: 1rem;
+    }
+    .modal h2 {
+      font-size: 2rem;
+      color: #0b2a41;
+      margin-bottom: 1rem;
+    }
+    .modal p {
+      color: #2b4f67;
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    /* statements section */
     .statements-section {
       padding: 5rem 0;
       background: #f0f7fd;
@@ -358,9 +392,62 @@
       margin-top: 2rem;
       font-size: 1rem;
     }
-    /* end statements */
 
-    /* full contact & book now */
+    /* NEW REVIEWS SECTION */
+    .reviews-section {
+      padding: 5rem 0;
+      background: white;
+    }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .review-card {
+      background: #f6fbfe;
+      padding: 2rem;
+      border-radius: 28px;
+      border: 1px solid #d0e2f0;
+      transition: 0.2s;
+    }
+    .review-card:hover {
+      background: white;
+      box-shadow: 0 15px 25px -10px rgba(0,60,90,0.12);
+    }
+    .review-stars {
+      color: #f4b836;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+    .review-text {
+      font-size: 1.1rem;
+      font-style: italic;
+      color: #1d435a;
+      margin-bottom: 1.5rem;
+    }
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .review-author i {
+      font-size: 2.2rem;
+      color: #1f6e9c;
+      background: white;
+      border-radius: 50%;
+      padding: 0.4rem;
+    }
+    .author-name {
+      font-weight: 700;
+      color: #0b2f41;
+    }
+    .author-title {
+      font-size: 0.85rem;
+      color: #537b97;
+    }
+
+    /* contact section */
     .contact-section {
       background: #e6f1f9;
       padding: 4rem 2rem;
@@ -444,14 +531,13 @@
       color: #86aec9;
     }
 
-    /* navigation anchor offsets */
     section {
       scroll-margin-top: 80px;
     }
   </style>
 </head>
 <body>
-  <!-- floating whatsapp + custom message -->
+  <!-- floating whatsapp -->
   <a href="https://wa.me/254732294681?text=Hello%20Nexford%20Security%2C%20I%20need%20more%20information%20about%20your%20services%20(CCTV%2C%20guards%2C%20dog%20handling%2C%20etc.)" 
      class="whatsapp-float" 
      target="_blank" 
@@ -459,14 +545,7 @@
     <i class="fab fa-whatsapp"></i>
   </a>
 
-  <!-- top bar with exact contacts -->
-  <div class="contact-bar">
-    <span><i class="fas fa-phone-alt"></i> <a href="tel:+254788298936">0788 298 936</a> (main)</span>
-    <span><i class="fab fa-whatsapp"></i> <a href="https://wa.me/254732294681" target="_blank">0732 294 681</a> (WhatsApp)</span>
-    <span><i class="fas fa-envelope"></i> <a href="mailto:info@nexfordsecurity.co.ke">info@nexfordsecurity.co.ke</a></span>
-    <span><i class="fas fa-map-pin"></i> P.O Box 4019–30100 Eldoret</span>
-    <span><i class="fas fa-clock"></i> Off Eldoret–Nakuru Hwy next to Ken Knit</span>
-  </div>
+  <!-- top bar REMOVED as requested -->
 
   <nav class="navbar">
     <div class="logo-area">
@@ -482,10 +561,20 @@
     </div>
   </nav>
 
+  <!-- MODAL (hidden by default) -->
+  <div id="serviceModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <div class="modal-icon" id="modalIcon"><i class="fas fa-video"></i></div>
+      <h2 id="modalTitle">CCTV Installation</h2>
+      <p id="modalDesc">Nexford provides high-definition CCTV systems with 24/7 recording, remote access, and AI-powered analytics. We handle indoor, outdoor, and covert cameras tailored to your premises. Installation includes cabling, configuration, and staff training.</p>
+      <p><strong>🔒 24/7 monitoring · motion detection · cloud backup</strong></p>
+    </div>
+  </div>
+
   <main>
-    <!-- home section with DYNAMIC BACKGROUND (portfolio1.jpg, portfolio2.jpg, portfolio3.jpg) -->
+    <!-- home section with slideshow -->
     <section id="home" class="hero">
-      <!-- slideshow container: images will be rotated via JS -->
       <div class="hero-slideshow">
         <img src="images/portfolio1.jpg" alt="security patrol" class="slide" id="slide1">
         <img src="images/portfolio2.jpg" alt="cctv control room" class="slide" id="slide2">
@@ -502,17 +591,15 @@
       </div>
     </section>
 
-    <!-- MISSION & VISION section (exactly as described) -->
+    <!-- MISSION & VISION -->
     <section class="statements-section">
       <div class="container">
         <div class="statements-grid">
-          <!-- Mission card -->
           <div class="statement-card">
             <h3>Mission</h3>
             <p>Safeguarding our clients' peace of mind by delivering innovative and reliable security solutions. We commit to protect lives, assets, and information through a modernized technology, highly trained personnel with unwavering integrity.</p>
             <div class="small-note">OUR STATEMENTS</div>
           </div>
-          <!-- Vision card -->
           <div class="statement-card">
             <h3>Vision</h3>
             <p>To be a global leader in redefined security excellence, aspiring to set new industry standards using advanced technological services.</p>
@@ -522,27 +609,80 @@
       </div>
     </section>
 
-    <!-- solutions section (all services from photo) -->
+    <!-- SOLUTIONS section (services with clickable cards) -->
     <section id="solutions" class="services-section">
       <div class="container">
         <div class="section-head">
           <h2>Some of the Services We Provide</h2>
           <p>Comprehensive security solutions — physical & electronic</p>
         </div>
-        <div class="services-grid">
-          <div class="service-item"><i class="fas fa-video"></i><h3>CCTV Installation</h3></div>
-          <div class="service-item"><i class="fas fa-user-shield"></i><h3>Security Guards Services</h3></div>
-          <div class="service-item"><i class="fas fa-dog"></i><h3>Dog Handling & Patrol</h3></div>
-          <div class="service-item"><i class="fas fa-key"></i><h3>Access Control</h3></div>
-          <div class="service-item"><i class="fas fa-eye"></i><h3>CCTV Surveillance</h3></div>
-          <div class="service-item"><i class="fas fa-bell"></i><h3>Intrusion Detection & Alarm</h3></div>
-          <div class="service-item"><i class="fas fa-fire-extinguisher"></i><h3>Fire Safety & Alarm Systems</h3></div>
-          <div class="service-item"><i class="fas fa-briefcase"></i><h3>Executive & Asset Protection</h3></div>
+        <div class="services-grid" id="servicesGrid">
+          <!-- data attributes store description and icon -->
+          <div class="service-item" data-title="CCTV Installation" data-desc="High-definition CCTV systems with 24/7 recording, remote access, and AI-powered analytics. Indoor, outdoor, and covert cameras with professional installation." data-icon="fa-video">
+            <i class="fas fa-video"></i><h3>CCTV Installation</h3>
+          </div>
+          <div class="service-item" data-title="Security Guards Services" data-desc="Trained, vetted security personnel for static guarding, patrolling, and event security. 24/7 availability and rapid response." data-icon="fa-user-shield">
+            <i class="fas fa-user-shield"></i><h3>Security Guards Services</h3>
+          </div>
+          <div class="service-item" data-title="Dog Handling & Patrol" data-desc="Specialized K9 units for explosive detection, patrol, and deterrence. Handlers with advanced training and certified dogs." data-icon="fa-dog">
+            <i class="fas fa-dog"></i><h3>Dog Handling & Patrol</h3>
+          </div>
+          <div class="service-item" data-title="Access Control" data-desc="Biometric, card, and keypad entry systems. Integrate with existing infrastructure for seamless secure access." data-icon="fa-key">
+            <i class="fas fa-key"></i><h3>Access Control</h3>
+          </div>
+          <div class="service-item" data-title="CCTV Surveillance" data-desc="Remote monitoring centers with real-time alerts. License plate recognition, face detection, and behavior analysis." data-icon="fa-eye">
+            <i class="fas fa-eye"></i><h3>CCTV Surveillance</h3>
+          </div>
+          <div class="service-item" data-title="Intrusion Detection & Alarm" data-desc="Perimeter sensors, glass break detectors, and silent alarms. Direct connection to response teams." data-icon="fa-bell">
+            <i class="fas fa-bell"></i><h3>Intrusion Detection & Alarm</h3>
+          </div>
+          <div class="service-item" data-title="Fire Safety & Alarm Systems" data-desc="Smoke/heat detectors, suppression systems, and emergency lighting. Regular testing and compliance certification." data-icon="fa-fire-extinguisher">
+            <i class="fas fa-fire-extinguisher"></i><h3>Fire Safety & Alarm Systems</h3>
+          </div>
+          <div class="service-item" data-title="Executive & Asset Protection" data-desc="Close protection officers, secure transport, and residential security. Discrete and highly trained teams." data-icon="fa-briefcase">
+            <i class="fas fa-briefcase"></i><h3>Executive & Asset Protection</h3>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- insights section -->
+    <!-- NEW REVIEWS SECTION (placeholder) -->
+    <section class="reviews-section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Client testimonials</h2>
+          <p>What our partners say about Nexford Security</p>
+        </div>
+        <div class="reviews-grid">
+          <div class="review-card">
+            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <p class="review-text">"Nexford’s team handles our warehouse security with utmost professionalism. The CCTV and dog patrols give us total peace of mind."</p>
+            <div class="review-author">
+              <i class="fas fa-user-circle"></i>
+              <div><span class="author-name">James Mwangi</span><br><span class="author-title">Logistics Director, Eldoret</span></div>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <p class="review-text">"We installed access control and fire alarms through Nexford. Fast installation, great support. Highly recommend."</p>
+            <div class="review-author">
+              <i class="fas fa-user-circle"></i>
+              <div><span class="author-name">Sarah Chebet</span><br><span class="author-title">Facility Manager, Kisumu</span></div>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+            <p class="review-text">"Executive protection team was discreet and very capable. They handled a high-profile event flawlessly."</p>
+            <div class="review-author">
+              <i class="fas fa-user-circle"></i>
+              <div><span class="author-name">Dr. Ian Kipruto</span><br><span class="author-title">Event Organizer, Nairobi</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- insights section (unchanged) -->
     <section id="insights" style="padding:4rem 0; background:#f3f9ff;">
       <div class="container" style="text-align: center;">
         <h2 style="font-size:2.5rem; color:#0f2838;">Insights & intelligence</h2>
@@ -554,7 +694,7 @@
       </div>
     </section>
 
-    <!-- partners section -->
+    <!-- partners section (unchanged) -->
     <section id="partners" style="padding:4rem 0; background:white;">
       <div class="container" style="text-align: center;">
         <h2 style="font-size:2.5rem; color:#0f2838;">Trusted partners</h2>
@@ -619,22 +759,53 @@
     </div>
   </footer>
 
-  <!-- JavaScript for dynamic slideshow and smooth scroll -->
   <script>
-    // Slideshow: rotate images (portfolio1.jpg, portfolio2.jpg, portfolio3.jpg)
+    // Slideshow
     (function() {
       const slides = document.querySelectorAll('.hero-slideshow .slide');
-      if (slides.length === 0) return;
-      let current = 0;
-      slides[current].classList.add('active');
-      setInterval(() => {
-        slides[current].classList.remove('active');
-        current = (current + 1) % slides.length;
+      if (slides.length > 0) {
+        let current = 0;
         slides[current].classList.add('active');
-      }, 5000); // change every 5 seconds
+        setInterval(() => {
+          slides[current].classList.remove('active');
+          current = (current + 1) % slides.length;
+          slides[current].classList.add('active');
+        }, 5000);
+      }
     })();
 
-    // smooth scroll for anchor links
+    // Modal functionality for services
+    const modal = document.getElementById('serviceModal');
+    const modalIcon = document.getElementById('modalIcon');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDesc = document.getElementById('modalDesc');
+    const closeBtn = document.querySelector('.close-modal');
+    const serviceItems = document.querySelectorAll('.service-item');
+
+    serviceItems.forEach(item => {
+      item.addEventListener('click', function() {
+        const title = this.dataset.title;
+        const desc = this.dataset.desc;
+        const icon = this.dataset.icon; // e.g., 'fa-video'
+        modalTitle.innerText = title;
+        modalDesc.innerText = desc;
+        // set icon dynamically
+        modalIcon.innerHTML = `<i class="fas ${icon}"></i>`;
+        modal.style.display = 'flex';
+      });
+    });
+
+    closeBtn.addEventListener('click', function() {
+      modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+
+    // Smooth scroll for anchor links
     document.querySelectorAll('.nav-links a, .book-now').forEach(link => {
       link.addEventListener('click', function(e) {
         const href = this.getAttribute('href');
