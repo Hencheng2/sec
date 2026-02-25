@@ -393,7 +393,7 @@
       font-size: 1rem;
     }
 
-    /* NEW REVIEWS SECTION */
+    /* REVIEWS SECTION */
     .reviews-section {
       padding: 5rem 0;
       background: white;
@@ -445,6 +445,61 @@
     .author-title {
       font-size: 0.85rem;
       color: #537b97;
+    }
+
+    /* NEW FAQ SECTION */
+    .faq-section {
+      padding: 5rem 0;
+      background: #f3f9ff;
+    }
+    .faq-grid {
+      max-width: 900px;
+      margin: 3rem auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .faq-item {
+      background: white;
+      border-radius: 24px;
+      padding: 0.1rem 2rem; /* padding controlled by details */
+      border: 1px solid #cde0ed;
+      transition: 0.2s;
+    }
+    .faq-item:hover {
+      border-color: #1f6e9c;
+    }
+    .faq-question {
+      padding: 1.5rem 0;
+      font-weight: 600;
+      font-size: 1.2rem;
+      color: #0f3b50;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-question::-webkit-details-marker {
+      display: none;
+    }
+    .faq-question::after {
+      content: '\f078';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      font-size: 1rem;
+      color: #1f6e9c;
+      transition: transform 0.3s;
+    }
+    .faq-item[open] .faq-question::after {
+      transform: rotate(180deg);
+    }
+    .faq-answer {
+      padding: 0 0 1.8rem 0;
+      color: #26526b;
+      line-height: 1.7;
+      border-top: 1px solid #d2e3f0;
+      margin-top: 0.5rem;
     }
 
     /* contact section */
@@ -545,8 +600,7 @@
     <i class="fab fa-whatsapp"></i>
   </a>
 
-  <!-- top bar REMOVED as requested -->
-
+  <!-- NAVBAR with new links: Testimonials & FAQ -->
   <nav class="navbar">
     <div class="logo-area">
       <div class="logo-img" role="img" aria-label="Nexford logo"></div>
@@ -555,6 +609,8 @@
     <div class="nav-links">
       <a href="#home">Home</a>
       <a href="#solutions">Solutions</a>
+      <a href="#testimonials">Testimonials</a>   <!-- NEW -->
+      <a href="#faq">FAQ</a>                     <!-- NEW -->
       <a href="#insights">Insights</a>
       <a href="#partners">Partners</a>
       <a href="#contact" class="contact-btn">Contact</a>
@@ -646,8 +702,8 @@
       </div>
     </section>
 
-    <!-- NEW REVIEWS SECTION (placeholder) -->
-    <section class="reviews-section">
+    <!-- TESTIMONIALS section (id added for nav) -->
+    <section id="testimonials" class="reviews-section">
       <div class="container">
         <div class="section-head">
           <h2>Client testimonials</h2>
@@ -678,6 +734,38 @@
               <div><span class="author-name">Dr. Ian Kipruto</span><br><span class="author-title">Event Organizer, Nairobi</span></div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW FAQ SECTION -->
+    <section id="faq" class="faq-section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Frequently asked questions</h2>
+          <p>Answers to common inquiries about our services</p>
+        </div>
+        <div class="faq-grid">
+          <details class="faq-item">
+            <summary class="faq-question">What areas do you cover?</summary>
+            <div class="faq-answer">We operate primarily in Eldoret, Kisumu, Nairobi, and throughout the Rift Valley. For major projects we can deploy nationally – contact us to confirm availability in your region.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">Are your security guards licensed and trained?</summary>
+            <div class="faq-answer">Absolutely. All guards undergo rigorous vetting, PSIRA accredited training, and continuous professional development. We also conduct random integrity tests.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">Do you offer monitoring for existing CCTV systems?</summary>
+            <div class="faq-answer">Yes, we can connect your current cameras to our 24/7 monitoring center, provided they are IP-compatible. We'll perform a compatibility check first.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">How quickly can you respond to an alarm activation?</summary>
+            <div class="faq-answer">Our average response time in urban areas is under 8 minutes. We have rapid intervention vehicles strategically positioned.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">Do you provide fire safety certificates?</summary>
+            <div class="faq-answer">Yes, after installation and testing we issue compliance certificates. We also do regular maintenance to keep systems certified.</p>
+          </details>
         </div>
       </div>
     </section>
@@ -743,6 +831,8 @@
         <h4 style="color:white;">Quick links</h4>
         <p><a href="#home">Home</a></p>
         <p><a href="#solutions">Solutions</a></p>
+        <p><a href="#testimonials">Testimonials</a></p>
+        <p><a href="#faq">FAQ</a></p>
         <p><a href="#insights">Insights</a></p>
         <p><a href="#partners">Partners</a></p>
       </div>
