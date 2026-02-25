@@ -447,7 +447,7 @@
       color: #537b97;
     }
 
-    /* NEW FAQ SECTION */
+    /* FAQ SECTION */
     .faq-section {
       padding: 5rem 0;
       background: #f3f9ff;
@@ -462,7 +462,7 @@
     .faq-item {
       background: white;
       border-radius: 24px;
-      padding: 0.1rem 2rem; /* padding controlled by details */
+      padding: 0.1rem 2rem;
       border: 1px solid #cde0ed;
       transition: 0.2s;
     }
@@ -500,6 +500,100 @@
       line-height: 1.7;
       border-top: 1px solid #d2e3f0;
       margin-top: 0.5rem;
+    }
+
+    /* NEW QUOTE SECTION */
+    .quote-section {
+      padding: 5rem 0;
+      background: linear-gradient(145deg, #f0f9ff 0%, #e6f0f7 100%);
+    }
+    .quote-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 48px;
+      padding: 3rem;
+      box-shadow: 0 30px 40px -20px rgba(0,45,65,0.25);
+      border: 1px solid rgba(31,110,156,0.15);
+    }
+    .quote-container h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #0f2c3a;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    .quote-container > p {
+      text-align: center;
+      color: #3a6077;
+      margin-bottom: 2.5rem;
+      font-size: 1.2rem;
+    }
+    .quote-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .form-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .form-group {
+      flex: 1 1 200px;
+    }
+    .form-group label {
+      display: block;
+      font-weight: 500;
+      color: #1d4a64;
+      margin-bottom: 0.4rem;
+      font-size: 0.95rem;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.9rem 1.2rem;
+      border-radius: 30px;
+      border: 1px solid #c7ddec;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      background: #f9fcff;
+      transition: 0.15s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #1f6e9c;
+      box-shadow: 0 0 0 3px rgba(31,110,156,0.1);
+    }
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    .submit-quote {
+      background: #0e293b;
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1.3rem;
+      cursor: pointer;
+      transition: 0.2s;
+      margin-top: 1rem;
+      border: 1px solid #29698b;
+    }
+    .submit-quote:hover {
+      background: #1f5575;
+      transform: scale(1.02);
+    }
+    .quote-note {
+      font-size: 0.9rem;
+      color: #608aa3;
+      margin-top: 1.5rem;
+      text-align: center;
     }
 
     /* contact section */
@@ -600,7 +694,7 @@
     <i class="fab fa-whatsapp"></i>
   </a>
 
-  <!-- NAVBAR with new links: Testimonials & FAQ -->
+  <!-- NAVBAR with new link: Quote -->
   <nav class="navbar">
     <div class="logo-area">
       <div class="logo-img" role="img" aria-label="Nexford logo"></div>
@@ -609,8 +703,9 @@
     <div class="nav-links">
       <a href="#home">Home</a>
       <a href="#solutions">Solutions</a>
-      <a href="#testimonials">Testimonials</a>   <!-- NEW -->
-      <a href="#faq">FAQ</a>                     <!-- NEW -->
+      <a href="#testimonials">Testimonials</a>
+      <a href="#faq">FAQ</a>
+      <a href="#quote">Quote</a>           <!-- NEW -->
       <a href="#insights">Insights</a>
       <a href="#partners">Partners</a>
       <a href="#contact" class="contact-btn">Contact</a>
@@ -702,7 +797,7 @@
       </div>
     </section>
 
-    <!-- TESTIMONIALS section (id added for nav) -->
+    <!-- TESTIMONIALS section -->
     <section id="testimonials" class="reviews-section">
       <div class="container">
         <div class="section-head">
@@ -738,7 +833,7 @@
       </div>
     </section>
 
-    <!-- NEW FAQ SECTION -->
+    <!-- FAQ SECTION -->
     <section id="faq" class="faq-section">
       <div class="container">
         <div class="section-head">
@@ -748,29 +843,78 @@
         <div class="faq-grid">
           <details class="faq-item">
             <summary class="faq-question">What areas do you cover?</summary>
-            <div class="faq-answer">We operate primarily in Eldoret, Kisumu, Nairobi, and throughout the Rift Valley. For major projects we can deploy nationally – contact us to confirm availability in your region.</p>
+            <div class="faq-answer">We operate primarily in Eldoret, Kisumu, Nairobi, and throughout the Rift Valley. For major projects we can deploy nationally – contact us to confirm availability in your region.</div>
           </details>
           <details class="faq-item">
             <summary class="faq-question">Are your security guards licensed and trained?</summary>
-            <div class="faq-answer">Absolutely. All guards undergo rigorous vetting, PSIRA accredited training, and continuous professional development. We also conduct random integrity tests.</p>
+            <div class="faq-answer">Absolutely. All guards undergo rigorous vetting, PSIRA accredited training, and continuous professional development. We also conduct random integrity tests.</div>
           </details>
           <details class="faq-item">
             <summary class="faq-question">Do you offer monitoring for existing CCTV systems?</summary>
-            <div class="faq-answer">Yes, we can connect your current cameras to our 24/7 monitoring center, provided they are IP-compatible. We'll perform a compatibility check first.</p>
+            <div class="faq-answer">Yes, we can connect your current cameras to our 24/7 monitoring center, provided they are IP-compatible. We'll perform a compatibility check first.</div>
           </details>
           <details class="faq-item">
             <summary class="faq-question">How quickly can you respond to an alarm activation?</summary>
-            <div class="faq-answer">Our average response time in urban areas is under 8 minutes. We have rapid intervention vehicles strategically positioned.</p>
+            <div class="faq-answer">Our average response time in urban areas is under 8 minutes. We have rapid intervention vehicles strategically positioned.</div>
           </details>
           <details class="faq-item">
             <summary class="faq-question">Do you provide fire safety certificates?</summary>
-            <div class="faq-answer">Yes, after installation and testing we issue compliance certificates. We also do regular maintenance to keep systems certified.</p>
+            <div class="faq-answer">Yes, after installation and testing we issue compliance certificates. We also do regular maintenance to keep systems certified.</div>
           </details>
         </div>
       </div>
     </section>
 
-    <!-- insights section (unchanged) -->
+    <!-- NEW QUOTE SECTION -->
+    <section id="quote" class="quote-section">
+      <div class="container quote-container">
+        <h2>Request a free quote</h2>
+        <p>Tell us your security needs — we'll get back to you within 2 hours</p>
+        <form class="quote-form" id="quoteForm" onsubmit="event.preventDefault(); alert('Thank you! A security specialist will contact you shortly.');">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full name *</label>
+              <input type="text" id="name" placeholder="John Kimani" required>
+            </div>
+            <div class="form-group">
+              <label for="company">Company (optional)</label>
+              <input type="text" id="company" placeholder="Nexford Ltd">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" placeholder="john@example.com" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone *</label>
+              <input type="tel" id="phone" placeholder="07XX XXX XXX" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="service">Service of interest *</label>
+            <select id="service" required>
+              <option value="" disabled selected>— select one —</option>
+              <option>CCTV Installation & Surveillance</option>
+              <option>Security Guards</option>
+              <option>Dog Handling & Patrol</option>
+              <option>Access Control</option>
+              <option>Intrusion / Fire Alarms</option>
+              <option>Executive Protection</option>
+              <option>Other / integrated solution</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Additional details</label>
+            <textarea id="message" placeholder="Location, number of guards, specific requirements..."></textarea>
+          </div>
+          <button type="submit" class="submit-quote">Get your quote <i class="fas fa-arrow-right"></i></button>
+          <p class="quote-note">We respect your privacy. No spam, just a tailored proposal.</p>
+        </form>
+      </div>
+    </section>
+
+    <!-- insights section -->
     <section id="insights" style="padding:4rem 0; background:#f3f9ff;">
       <div class="container" style="text-align: center;">
         <h2 style="font-size:2.5rem; color:#0f2838;">Insights & intelligence</h2>
@@ -782,7 +926,7 @@
       </div>
     </section>
 
-    <!-- partners section (unchanged) -->
+    <!-- partners section -->
     <section id="partners" style="padding:4rem 0; background:white;">
       <div class="container" style="text-align: center;">
         <h2 style="font-size:2.5rem; color:#0f2838;">Trusted partners</h2>
@@ -833,6 +977,7 @@
         <p><a href="#solutions">Solutions</a></p>
         <p><a href="#testimonials">Testimonials</a></p>
         <p><a href="#faq">FAQ</a></p>
+        <p><a href="#quote">Quote</a></p>
         <p><a href="#insights">Insights</a></p>
         <p><a href="#partners">Partners</a></p>
       </div>
@@ -876,10 +1021,9 @@
       item.addEventListener('click', function() {
         const title = this.dataset.title;
         const desc = this.dataset.desc;
-        const icon = this.dataset.icon; // e.g., 'fa-video'
+        const icon = this.dataset.icon;
         modalTitle.innerText = title;
         modalDesc.innerText = desc;
-        // set icon dynamically
         modalIcon.innerHTML = `<i class="fas ${icon}"></i>`;
         modal.style.display = 'flex';
       });
